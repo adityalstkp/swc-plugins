@@ -1,12 +1,24 @@
 {
   "name": "@adityals/swc-plugin-transform-import",
   "version": "0.0.1",
-  "description": "",
+  "description": "transform import swc plugin",
   "main": "swc_plugin_transform_import.wasm",
+  "keywords": [
+    "swc-plugins",
+    "swc-plugin",
+    "swc",
+    "transform-import",
+    "lodash",
+    "antd"
+  ],
   "scripts": {
     "build": "cargo build --release --target wasm32-wasi && cp ../../target/wasm32-wasi/release/swc_plugin_transform_import.wasm ."
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "+https://github.com/adityals/swc-plugins.git"
+  },
+  "homepage": "https://github.com/adityals/swc-plugins",
   "author": "",
   "license": "ISC"
 }
