@@ -12,7 +12,8 @@
     "antd"
   ],
   "scripts": {
-    "build": "cargo build --release --target wasm32-wasi && cp ../../target/wasm32-wasi/release/swc_plugin_transform_import.wasm ."
+    "build": "cargo build --release --target wasm32-wasi && cp ../../target/wasm32-wasi/release/swc_plugin_transform_import.wasm .",
+    "prepublishOnly": "pnpm build"
   },
   "repository": {
     "type": "git",
