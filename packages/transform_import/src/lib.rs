@@ -46,6 +46,8 @@ pub struct TransformImportConfig {
     pub transform: String,
     pub style_path: Option<String>,
     pub transform_case: String,
+    #[serde(default)]
+    pub keep_import_conversion: bool,
 }
 
 pub type TransformImportConfigs = HashMap<String, TransformImportConfig>;
@@ -177,15 +179,19 @@ impl VisitMut for TransformImport {
                                             &import_dclr.src,
                                         );
 
+                                        let new_specifier = if config.keep_import_conversion {
+                                            specifier.clone()
+                                        } else {
+                                            ImportSpecifier::Default(ImportDefaultSpecifier {
+                                                local: named_import.local.clone(),
+                                                span: named_import.span,
+                                            })
+                                        };
+
                                         let new_node = ModuleItem::ModuleDecl(ModuleDecl::Import(
                                             ImportDecl {
                                                 span: import_dclr.span,
-                                                specifiers: vec![ImportSpecifier::Default(
-                                                    ImportDefaultSpecifier {
-                                                        local: named_import.local.clone(),
-                                                        span: named_import.span,
-                                                    },
-                                                )],
+                                                specifiers: vec![new_specifier],
                                                 type_only: import_dclr.type_only,
                                                 src: Box::new(transformed_path),
                                                 with: import_dclr.with.clone(),
