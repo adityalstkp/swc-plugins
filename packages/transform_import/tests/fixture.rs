@@ -26,7 +26,7 @@ fn transform_import_fixture(input: PathBuf) {
                         transform_case: "kebab_case".to_string(),
                         transform: "antd/lib/[[member]]".to_string(),
                         style_path: Some("antd/lib/[[member]]/style".to_string()),
-                        keep_import_conversion: false,
+                        keep_import_specifier: false,
                     },
                 ),
                 (
@@ -35,7 +35,7 @@ fn transform_import_fixture(input: PathBuf) {
                         transform_case: "".to_string(),
                         transform: "lodash/[[member]]".to_string(),
                         style_path: None,
-                        keep_import_conversion: false,
+                        keep_import_specifier: false,
                     },
                 ),
             ])))

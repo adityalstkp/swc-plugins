@@ -47,7 +47,7 @@ pub struct TransformImportConfig {
     pub style_path: Option<String>,
     pub transform_case: String,
     #[serde(default)]
-    pub keep_import_conversion: bool,
+    pub keep_import_specifier: bool,
 }
 
 pub type TransformImportConfigs = HashMap<String, TransformImportConfig>;
@@ -179,7 +179,7 @@ impl VisitMut for TransformImport {
                                             &import_dclr.src,
                                         );
 
-                                        let new_specifier = if config.keep_import_conversion {
+                                        let new_specifier = if config.keep_import_specifier {
                                             specifier.clone()
                                         } else {
                                             ImportSpecifier::Default(ImportDefaultSpecifier {
