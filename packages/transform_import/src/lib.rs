@@ -120,6 +120,7 @@ impl VisitMut for TransformImport {
                                 let new_node =
                                     ModuleItem::ModuleDecl(ModuleDecl::Import(ImportDecl {
                                         span: import_dclr.span,
+                                        phase: Default::default(),
                                         specifiers: import_dclr.specifiers.clone(),
                                         type_only: import_dclr.type_only,
                                         src: import_dclr.src.clone(),
@@ -145,6 +146,7 @@ impl VisitMut for TransformImport {
                                                             imported: named_import.imported.clone(),
                                                         },
                                                     )],
+                                                    phase: Default::default(),
                                                     type_only: named_import.is_type_only,
                                                     src: import_dclr.src.clone(),
                                                     with: import_dclr.with.clone(),
@@ -195,6 +197,7 @@ impl VisitMut for TransformImport {
                                                 type_only: import_dclr.type_only,
                                                 src: Box::new(transformed_path),
                                                 with: import_dclr.with.clone(),
+                                                phase: Default::default(),
                                             },
                                         ));
 
@@ -216,6 +219,7 @@ impl VisitMut for TransformImport {
                                                     type_only: import_dclr.type_only,
                                                     src: Box::new(style_path),
                                                     with: import_dclr.with.clone(),
+                                                    phase: Default::default(),
                                                 }),
                                             );
                                             transformed_nodes.push(new_node);
@@ -229,6 +233,7 @@ impl VisitMut for TransformImport {
                                                 type_only: import_dclr.type_only,
                                                 src: import_dclr.src.clone(),
                                                 with: import_dclr.with.clone(),
+                                                phase: Default::default(),
                                             },
                                         ));
                                         transformed_nodes.push(new_node);
