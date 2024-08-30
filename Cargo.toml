@@ -1,6 +1,7 @@
 [workspace]
-members = [
-  "packages/transform_import",
+members = [ 
+  "packages/simple_transform_macro_props",
+  "packages/transform_import"
 ]
 
 resolver = "2"

@@ -1,6 +1,6 @@
 {
   "name": "@adityals/swc-plugin-transform-import",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "transform import swc plugin",
   "main": "swc_plugin_transform_import.wasm",
   "keywords": [

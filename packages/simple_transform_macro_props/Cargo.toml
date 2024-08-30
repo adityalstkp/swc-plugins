@@ -1,5 +1,5 @@
 [package]
-name = "swc_plugin_transform_import"
+name = "swc_plugin_simple_transform_macro_props"
 version = "0.0.1"
 edition = "2021"
 
